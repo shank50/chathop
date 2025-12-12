@@ -1,0 +1,463 @@
+/* overlay styles - dark matte */
+
+/* main container */
+.lpn-overlay {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999999;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Collapsed state */
+.lpn-overlay.collapsed {
+  width: 48px;
+  height: 48px;
+}
+
+.lpn-collapsed-btn {
+  width: 48px;
+  height: 48px;
+  background: #2a2a2a;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  color: #ffffff;
+  border: 1px solid #3a3a3a;
+}
+
+.lpn-collapsed-btn:hover {
+  transform: scale(1.05);
+  background: #333333;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+.lpn-overlay.collapsed .lpn-expanded-container {
+  display: none;
+}
+
+.lpn-overlay.collapsed .lpn-collapsed-btn {
+  display: flex;
+}
+
+/* Expanded state */
+.lpn-overlay.expanded {
+  width: 380px;
+  max-height: 600px;
+}
+
+.lpn-overlay.expanded .lpn-collapsed-btn {
+  display: none;
+}
+
+.lpn-overlay.expanded .lpn-expanded-container {
+  display: flex;
+  flex-direction: column;
+  background: #1e1e1e;
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+  border: 1px solid #333333;
+  overflow: hidden;
+  max-height: 600px;
+  color: #e0e0e0;
+}
+
+/* Header */
+.lpn-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.lpn-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #e0e0e0;
+}
+
+.lpn-close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  color: #999;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lpn-close-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
+}
+
+.lpn-sort-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  color: #999;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lpn-sort-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
+}
+
+/* hint text */
+.lpn-hint {
+  font-size: 11px;
+  color: #666;
+  padding: 4px 12px 8px;
+  text-align: center;
+  font-style: italic;
+}
+
+/* tabs */
+.lpn-tabs {
+  display: flex;
+  padding: 0 16px;
+  gap: 8px;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.lpn-tab {
+  background: none;
+  border: none;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #888;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  position: relative;
+  top: 1px;
+}
+
+.lpn-tab:hover {
+  color: #b0b0b0;
+}
+
+.lpn-tab.active {
+  color: #ffffff;
+  border-bottom-color: #555555;
+}
+
+/* Content */
+.lpn-content {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 200px;
+  max-height: 450px;
+  background: #1a1a1a;
+}
+
+.lpn-tab-content {
+  display: none;
+  padding: 12px;
+}
+
+.lpn-tab-content.active {
+  display: block;
+}
+
+/* Prompt list */
+.lpn-prompt-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lpn-prompt-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: #252525;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid #333333;
+}
+
+.lpn-prompt-item:hover {
+  background: #2d2d2d;
+  border-color: #444444;
+  transform: translateX(-2px);
+}
+
+.lpn-prompt-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.lpn-prompt-number {
+  font-size: 12px;
+  font-weight: 600;
+  color: #999999;
+  margin-bottom: 4px;
+}
+
+.lpn-prompt-preview {
+  font-size: 13px;
+  color: #b0b0b0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 1.4;
+}
+
+.lpn-prompt-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.lpn-action-btn {
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  border-radius: 6px;
+  color: #888;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lpn-action-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.lpn-delete-btn:hover {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+/* Saved prompt specific styles */
+.lpn-saved-item {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.lpn-saved-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.lpn-saved-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: #e0e0e0;
+}
+
+.lpn-saved-site {
+  font-size: 11px;
+  padding: 2px 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #b0b0b0;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.lpn-saved-meta {
+  font-size: 11px;
+  color: #888;
+  margin-top: 6px;
+}
+
+/* Empty state */
+.lpn-empty,
+.lpn-loading {
+  text-align: center;
+  padding: 40px 20px;
+  color: #888;
+  font-size: 13px;
+}
+
+/* Dialog */
+.lpn-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000000;
+  backdrop-filter: blur(4px);
+}
+
+.lpn-dialog {
+  background: #2a2a2a;
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  color: #e0e0e0;
+}
+
+.lpn-dialog h3 {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #e0e0e0;
+}
+
+.lpn-dialog-body label {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.lpn-dialog-body label span {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: 13px;
+  color: #999;
+}
+
+.lpn-dialog-body input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.2s;
+  background: #1a1a1a;
+  color: #e0e0e0;
+}
+
+.lpn-dialog-body input:focus {
+  outline: none;
+  border-color: #666;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.lpn-prompt-preview-box {
+  margin-top: 16px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.lpn-prompt-preview-box strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12px;
+  color: #999;
+}
+
+.lpn-prompt-preview-box p {
+  margin: 0;
+  color: #d0d0d0;
+  line-height: 1.5;
+}
+
+.lpn-dialog-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.lpn-btn {
+  flex: 1;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.lpn-btn-primary {
+  background: #4a4a4a;
+  color: white;
+}
+
+.lpn-btn-primary:hover {
+  transform: translateY(-1px);
+  background: #555555;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.lpn-btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #999;
+}
+
+.lpn-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Toast */
+.lpn-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: rgba(30, 30, 30, 0.95);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  z-index: 1000001;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lpn-toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* Scrollbar styling */
+.lpn-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.lpn-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.lpn-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.lpn-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
