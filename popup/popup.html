@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatHop</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <div class="popup-container">
+    <header class="popup-header">
+      <div class="header-content">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <h1>Saved Prompts</h1>
+      </div>
+    </header>
+
+    <div class="search-bar">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8" />
+        <path d="M21 21l-4.35-4.35" />
+      </svg>
+      <input type="text" id="search-input" placeholder="Search saved prompts...">
+    </div>
+
+    <div id="prompts-container" class="prompts-container">
+      <div class="loading">Loading saved prompts...</div>
+    </div>
+
+    <div class="empty-state" id="empty-state" style="display: none;">
+      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z" />
+        <path d="M17 21v-8H7v8M7 3v5h8" />
+      </svg>
+      <h2>No Saved Prompts</h2>
+      <p>Visit any LLM chat and save prompts using the floating widget</p>
+    </div>
+
+    <footer class="popup-footer">
+      <div class="footer-info">
+        <span id="prompt-count">0 prompts</span>
+      </div>
+      <button id="clear-all-btn" class="clear-btn" style="display: none;">
+        Clear All
+      </button>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>
